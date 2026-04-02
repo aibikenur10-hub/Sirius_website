@@ -869,7 +869,7 @@ section.reveal, .reveal-element.reveal {
 .hero-slide img {
   transition: opacity 0.5s ease-in-out;
 }
-/* Анимация появления секций */
+
 section, .reveal-element {
   opacity: 0;
   transform: translateY(30px);
@@ -881,13 +881,10 @@ section.reveal, .reveal-element.reveal {
   transform: translateY(0);
 }
 
-/* Анимация мерцания звезд */
 @keyframes twinkle {
   0% { transform: scale(0.5); opacity: 0.3; }
   100% { transform: scale(1.2); opacity: 1; }
 }
-
-/* Фикс для плавности картинок в слайдере */
 .hero-slide img {
   transition: opacity 0.5s ease-in-out;
 }
