@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0c0d12">
+  <meta name="description" content="Gallery of Sirius FTC team photos and robots in action.">
+  <title>Gallery - Sirius FTC</title>
+  <link rel="icon" type="image/webp" href="images/logo-team.webp">
+  <link rel="stylesheet" href="sirius.css" />
+  <link rel="icon" type="image/webp" href="logo.webp">
+  <script src="sirius.js" defer></script>
+</head>
+<body id="top">
+
+<header>
+  <a href="index.html">
+    <img src="images/logo.webp" alt="Sirius FTC logo" class="team-logo">
+  </a>
+  <h1>Sirius FTC</h1>
+  <p>Robotics • Engineering • Competition</p>
+</header>
+
+  <nav id="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html" class="active">Gallery</a>
+    <a href="achievements.html">Achievements</a>
+  </nav>
+
+  <main>
+    <section class="gallery-section">
+      <h2>Gallery</h2>
+
+
+
+      <div class="gallery-scroll" tabindex="0">
+        <img src="images/groupphoto.PNG"  loading="lazy" data-category="team">
+        <img src="images/groupphoto2.jpeg"  loading="lazy" data-category="team">
+        <img src="images/groupphoto3.jpeg"  loading="lazy" data-category="robots">
+        <img src="images/groupphoto4.jpeg"  loading="lazy" data-category="team">
+        <img src="images/groupphoto5.webp"  loading="lazy" data-category="events">
+        <img src="images/groupphoto6.webp"  loading="lazy" data-category="robots">
+        <img src="images/groupphoto7.PNG"  loading="lazy" data-category="events">
+        <img src="images/groupphoto8.PNG"  loading="lazy" data-category="team">
+      </div>
+    </section>
+  </main>
+
+  <a href="#top" class="scroll-top" aria-label="Scroll to top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </a>
+
+  <footer>
+    <div class="footer-note">
+      &copy; <span id="current-year"></span> Sirius FTC
+    </div>
+  </footer>
+
+  <script>
+    const galleryFilters = document.querySelectorAll('.gallery-filters .filter-btn');
+    const galleryImages = document.querySelectorAll('.gallery-scroll img');
+
+    galleryFilters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        galleryFilters.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const category = btn.dataset.category;
+
+        galleryImages.forEach(img => {
+          if (category === 'all' || img.dataset.category === category) {
+            img.style.display = 'block';
+          } else {
+            img.style.display = 'none';
+          }
+        });
+      });
+    });
+
+
+  </script>
+<div class="particles-container"></div>
+<div class="starfield"></div>
+</body>
+</html>

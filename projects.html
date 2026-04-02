@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0c0d12">
+  <meta name="description" content="Sirius FTC robotics projects. Explore our robots, their features, and achievements.">
+  <title>Projects - Sirius FTC</title>
+  <link rel="icon" type="image/webp" href="images/logo-team.webp">
+  <link rel="stylesheet" href="sirius.css" />
+  <link rel="icon" type="image/webp" href="logo.webp">
+  <script src="sirius.js" defer></script>
+</head>
+<body id="top">
+
+<header>
+  <a href="index.html">
+    <img src="images/logo.webp" alt="Sirius FTC logo" class="team-logo">
+  </a>
+  <h1>Sirius FTC</h1>
+  <p>Robotics • Engineering • Competition</p>
+</header>
+
+  <nav id="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="achievements.html">Achievements</a>
+  </nav>
+
+  <main>
+    <!-- Фильтры проектов -->
+    <section class="projects-filters">
+      <button class="filter-btn active" data-type="all">All</button>
+      <button class="filter-btn" data-type="modular">Modular</button>
+      <button class="filter-btn" data-type="intake">Intake</button>
+      <button class="filter-btn" data-type="autonomous">Autonomous</button>
+    </section>
+
+    <!-- Карточки роботов -->
+    <section class="projects" id="projects-section">
+      <h2>Our Robots</h2>
+      <div class="robot-grid">
+
+        <div class="robot-card" data-type="modular" tabindex="0">
+          <img src="picrobot1.webp" alt="Sirius Bot" loading="lazy">
+          <div class="robot-info">
+            <h3>Sirius Bot</h3>
+            <p>Modular FTC robot with roller intake, fast cycles, and stable game element feeding system.</p>
+            <p><strong>Type:</strong> Modular</p>
+          </div>
+        </div>
+
+        <div class="robot-card" data-type="intake" tabindex="0">
+          <img src="picrobot2.webp" alt="Red Nova" loading="lazy">
+          <div class="robot-info">
+            <h3>Red Nova</h3>
+            <p>Optimized for quick intake and delivery of game elements with custom arm mechanisms.</p>
+            <p><strong>Type:</strong> Intake</p>
+          </div>
+        </div>
+
+        <div class="robot-card" data-type="autonomous" tabindex="0">
+          <img src="picrobot3.webp" alt="Autobot-X" loading="lazy">
+          <div class="robot-info">
+            <h3>Autobot-X</h3>
+            <p>Designed for precision autonomous tasks and advanced sensor integration.</p>
+            <p><strong>Type:</strong> Autonomous</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <a href="#top" class="scroll-top" aria-label="Scroll to top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </a>
+
+  <footer>
+    <div class="footer-note">
+      &copy; <span id="current-year"></span> Sirius FTC
+    </div>
+  </footer>
+
+  <script>
+    // Фильтрация проектов
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const robotCards = document.querySelectorAll('.robot-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const type = btn.dataset.type;
+
+        robotCards.forEach(card => {
+          if (type === 'all' || card.dataset.type === type) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
